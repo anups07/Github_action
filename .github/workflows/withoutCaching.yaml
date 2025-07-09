@@ -1,0 +1,32 @@
+name: No Cache Example
+
+on: [push]
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: create txt file
+        run: |
+          mkdir -p output
+          echo "Generated on $(date)" > output/output.txt
+          cat output/output.txt
+
+  reuse:
+    needs: generate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Try to read generated file
+        run: |
+          if [ -f output/output.txt ]; then
+            echo "Found cached file:"
+            cat output/output.txt
+          else
+            echo "No file found from previous job."
+          fi
