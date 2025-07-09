@@ -1,0 +1,13 @@
+name: My test workflow
+
+on: push 
+
+jobs:
+    initial_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: welcome banner
+          run: echo "Hello there"
+        
+        - name: list repo files
+          run: ls -l
