@@ -8,6 +8,9 @@ jobs:
   test_cron_setup:
     runs_on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
       - name: simple print date
         run: date
 
