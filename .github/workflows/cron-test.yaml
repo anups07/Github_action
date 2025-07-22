@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: "1 * * * *"
 
+
 jobs:
   test_cron_setup:
     runs_on: ubuntu-latest
