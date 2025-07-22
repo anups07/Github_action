@@ -1,0 +1,16 @@
+name: test cron expressions
+
+on:
+  schedule:
+    - cron: "* * * * *"
+
+jobs:
+  test_cron_setup:
+    runs_on: ubuntu-latest
+    steps:
+      - name: simple print date
+        run: date
+
+      - name: docker login
+        run: echo "docker login --username-anups --password=afafaef5sac"
+  
