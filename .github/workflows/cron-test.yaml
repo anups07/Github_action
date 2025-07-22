@@ -2,7 +2,7 @@ name: test cron expressions
 
 on:
   schedule:
-    - cron: "* * * * *"
+    - cron: "1 * * * *"
 
 jobs:
   test_cron_setup:
