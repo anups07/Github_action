@@ -1,0 +1,14 @@
+name: Post manual trigger workflow
+
+on:
+  workflow_run:
+    workflows: [Manual Trigger Example]
+    types:
+      - completed
+
+jobs:
+  post-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post manual trigger
+        run: echo "SUCCESS after manual trigger workflow"
