@@ -2,8 +2,8 @@ name: test cron expressions
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "1 * * * *"
+  # schedule:
+  #   - cron: "1 * * * *"
 
 
 jobs:
