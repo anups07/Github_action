@@ -16,6 +16,19 @@ on:
         description: "Custom message"
         required: false
         default: "Triggered manually!"
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+      tags:
+        description: 'Test scenario tags'
+        required: false
+        type: boolean
 
 jobs:
   run-manual-job:
@@ -31,3 +44,13 @@ jobs:
 
       - name: Do some action
         run: echo "This job was triggered manually!"
+
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Log level: $LEVEL"
+          echo "Tags: $TAGS"
+        env:
+          LEVEL: ${{ inputs.logLevel }}
+          TAGS: ${{ inputs.tags }}
