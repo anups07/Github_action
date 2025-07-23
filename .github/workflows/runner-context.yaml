@@ -11,4 +11,5 @@ jobs:
           echo "The environment of the runner executing the job is ${{ runner.environment }}"
 
       - name: get runner os
-        run: echo "Runner OS is: ${{ runner.os }}"
+        run: |
+          echo "Runner OS is: ${{ runner.os }}"
