@@ -1,0 +1,14 @@
+name: Runner Context
+on: push
+
+jobs:
+  runner-cong:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get runner env
+        run: |
+          echo "The environment of the runner executing the job is ${{ runner.environment }}"
+
+      - name: get runner os
+        run: echo "Runner OS is: ${{ runner.os }}"
