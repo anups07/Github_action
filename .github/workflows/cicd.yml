@@ -1,4 +1,4 @@
-name: main Merge Deployment
+name: cicd demo
 
 on:
   push:
