@@ -71,8 +71,8 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             export PATH=$PATH:/usr/bin
-            # # Log in to Docker Hub using the access token
-            # echo ${{ secrets.DOCKERHUB_TOKEN }} || docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+            # Log in to Docker Hub using the access token
+            echo ${{ secrets.DOCKERHUB_TOKEN }} || docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
             # Stop running container
             if [ "$(docker ps -f name=demo-node-app-api -q)" ]; then
