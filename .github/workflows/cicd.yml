@@ -72,7 +72,7 @@ jobs:
           script: |
             export PATH=$PATH:/usr/bin
             # Log in to Docker Hub using the access token
-            echo ${{ secrets.DOCKERHUB_TOKEN }} || docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+            echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
             # Stop running container
             if [ "$(docker ps -f name=demo-node-app-api -q)" ]; then
@@ -84,8 +84,10 @@ jobs:
               docker rm demo-node-app-api
             fi
 
-            # Remove old image
-            docker rmi $(docker images 'anups07/demo-node-app' -q)
+            IMAGES=$(docker images 'anups07/demo-node-app' -q)
+            if [ -n "$IMAGES" ]; then
+              docker rmi $IMAGES
+            fi
 
             # Pull new image & run container
             docker run -d --name demo-node-app-api -p 80:3000 anups07/demo-node-app:${{ needs.build-push-prod-image.outputs.sha_short }}
