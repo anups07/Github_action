@@ -53,7 +53,7 @@ jobs:
       - name: Build and push with commit hash tag
         run: |
           docker compose build prod
-          docker tag ci-cd-pipeline-prod anups07/demo-node-app:${{ steps.vars.outputs.sha_short }}
+          docker tag anups07/demo-node-app:latest anups07/demo-node-app:${{ steps.vars.outputs.sha_short }}
           docker push anups07/demo-node-app:${{ steps.vars.outputs.sha_short }}
 
   deploy-prod-image:
