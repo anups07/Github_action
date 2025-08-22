@@ -3,6 +3,7 @@ version: '3.8'
 services:
   dev:
     container_name: nodejs-api-dev
+    image: anups07/demo-node-app:latest
     build:
       context: .
       target: development
@@ -17,6 +18,7 @@ services:
 
   prod:
     container_name: nodejs-api-prod
+    image: anups07/demo-node-app:latest
     build:
       context: .
       target: production
