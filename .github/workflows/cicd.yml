@@ -70,6 +70,7 @@ jobs:
           username: ${{ secrets.EC2_USER_NAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            export PATH=$PATH:/usr/bin
             # # Log in to Docker Hub using the access token
             # echo ${{ secrets.DOCKERHUB_TOKEN }} || docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
